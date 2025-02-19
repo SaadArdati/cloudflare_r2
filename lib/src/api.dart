@@ -522,7 +522,7 @@ class CloudFlareR2 {
   /// [expiresIn] - how long the URL should be valid for (defaults to 1 hour)
   ///
   /// Returns a pre-signed URL that can be used to access the object
-  static Future<String> getObjectUrl({
+  static Future<Uri> getObjectUrl({
     required String bucket,
     required String objectName,
     String region = 'us-east-1',
@@ -545,6 +545,6 @@ class CloudFlareR2 {
       expiresIn: expiresIn,
     );
 
-    return signedRequest.toString();
+    return signedRequest;
   }
 }
